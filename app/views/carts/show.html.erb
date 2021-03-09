@@ -5,6 +5,9 @@
 <ul>
   <% @cart.join_item_carts.each do |join_item_cart| %>
     <li><%= join_item_cart.item.title %> (x <%= join_item_cart.quantity %>) </li>
+
+	<% link_to 'Supprimer', join_item_cart_path(join_item_cart.id), method: delete %>
+	
   <% end %>
 </ul>
 
