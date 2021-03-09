@@ -1,0 +1,11 @@
+<p id="notice"><%= notice%></p>
+
+<h2>Panier</h2>
+
+<ul>
+  <% @cart.join_item_carts.each do |join_item_cart| %>
+    <li><%= join_item_cart.item.title %> (x <%= join_item_cart.quantity %>) </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Retour aux produits", root_path %></p>
