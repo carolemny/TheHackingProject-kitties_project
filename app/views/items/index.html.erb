@@ -32,6 +32,20 @@
 
    <%= link_to 'New Item', new_item_path %>
 
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.title %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= button_to "ajouter au panier", join_item_carts_path(item_id: item) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 
   
