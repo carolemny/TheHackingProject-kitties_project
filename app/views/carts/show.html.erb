@@ -1,10 +1,16 @@
 <p id="notice"><%= notice%></p>
 
 <h2>Panier</h2>
-
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 <ul>
-  <% @cart.join_item_carts.each do |join_item_cart| %>
-    <li><%= join_item_cart.item.title %> (x <%= join_item_cart.quantity %>) </li>
+
+  <% @cart.join_item_carts.sort_by(&:id).each do |join_item_cart| %>
+    <li><%= "#{join_item_cart.item.title} (x #{join_item_cart.quantity})" %> </li>
+		<%= button_to "+", join_item_carts_path(item_id: join_item_cart.item), class:'btn btn-success' %>
+		<%= button_to "-", join_item_cart_path(join_item_cart.id), method: :put, class:'btn btn-warning' %>
+		<%= link_to 'supprimer', join_item_cart_path(id: join_item_cart.id), method: :delete, class:'btn btn-danger' %>
   <% end %>
 </ul>
 

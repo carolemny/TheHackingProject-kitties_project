@@ -1,19 +1,23 @@
 class JoinItemCartsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [:create]
+  before_action :set_cart
   #before_action :set_join_item_cart, only: [:show, :edit, :update, :destroy]
-  def index
-    @join_item_carts = JoinItemCart.all
+
+  def destroy
+    join_item_cart = JoinItemCart.find(params[:id])
+    join_item_cart.destroy
+    redirect_to cart_path(@cart.id)
   end
 
-  def show
-  end
-
-  def new
-    @join_item_cart = JoinItemCart.new
-  end
-
-  def edit
+  def update
+    join_item_cart = JoinItemCart.find(params[:id])
+    if join_item_cart.quantity > 1
+      quantity = (join_item_cart.quantity - 1)
+      join_item_cart.update(quantity: quantity)
+    else
+      flash[:notice] = "Vous êtes à la quantité minimale, vous devez supprimer"
+    end
+    redirect_to cart_path(@cart.id)
   end
 
   def create
