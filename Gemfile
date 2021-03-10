@@ -72,3 +72,6 @@ gem 'letter_opener'
 
 #amazon
 gem "aws-sdk-s3", require: false
+
+#Faker
+gem 'faker'
