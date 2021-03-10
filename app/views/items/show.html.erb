@@ -1,25 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-    
-<div class="row justify-content-center">
-    
-          <div class=" col-md-6">
-            <div class="card text-center" >
-            <p>
-              <%= image_tag @item.picture, style:"width:100%; display:block" %>
-            </p>
-              <div class="card-body">
-                <h4 class="card-title"><%= @item.title %></h4>
-                <p class="card-text"><%= @item.description %></p>
-                <p class="card-text"><%= @item.price %></p>
-                <%= button_to "ajouter au panier", join_item_carts_path(item_id: @item), class:'btn btn-success' %>
-              </div>
-            </div>
-            <br>
-                <%= link_to 'Back', items_path %>
-          </div>
-       
-    
-</div>
+<div class="row">
+  <div class="col-md-6 m-auto">
+    <div class="card text-center" >
+
+      <img class="card-img-top" src="https://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="Card image"/>
+
+      <div class="card-body">
+        <h4 class="card-title"><%= @item.title %></h4>
+        <p class="card-text"><%= @item.description %></p>
+        <p class="card-text"><%= @item.price %> €</p>
+        <%= button_to "Ajouter au panier", join_item_carts_path(item_id: @item), class:'my-btn' %>
+      </div>
+
+    </div>
+    <br>
+
+    <%= link_to 'Retour', items_path, class:"my-link" %>
+  </div> 
 </div>
