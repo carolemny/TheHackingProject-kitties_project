@@ -1,0 +1,48 @@
+@import "variable";
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Itim', cursive;
+  letter-spacing: 1px;
+  color: $my-primary;
+}
+
+h6, h5 {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+nav a, a, .my-link {
+  text-decoration: none;
+  color: $my-primary;
+  &:hover {
+    color: $my-secondary;
+  }
+}
+
+p {
+  font-size: .9em;
+}
+
+.my-lead {
+  font-weight: 600;
+}
+
+blockquote {
+  font-style: italic;
+  font-weight: 600;
+}
+
+.font-400 {
+  font-weight: 400;
+}
+.font-600 {
+  font-weight: 600;
+}
+.font-700 {
+  font-weight: 700;
+}
+
+nav h3:hover {
+  color: $my-blue-light;
+}

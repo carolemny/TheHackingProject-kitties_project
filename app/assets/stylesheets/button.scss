@@ -1,0 +1,23 @@
+@import 'variable';
+
+.my-btn {
+  padding: .7em;
+  border: none;
+  border-radius: 5px;
+  background-color: $my-light;
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: $my-dark;
+  text-decoration: none;
+  &:hover {
+    background-color: $my-secondary;
+    color: $my-dark;
+  }
+  &-sm {
+    font-size: .8em;
+  }
+  &-lg {
+    font-size: 1.15em;
+  padding: 1em;
+  }
+}

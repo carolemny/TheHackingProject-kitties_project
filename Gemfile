@@ -69,3 +69,11 @@ gem 'devise'
 #mailer
 gem 'mailjet'
 gem 'letter_opener'
+
+#stripe
+gem 'stripe'
+#amazon
+gem "aws-sdk-s3", require: false
+
+#Faker
+gem 'faker'

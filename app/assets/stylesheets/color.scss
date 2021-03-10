@@ -1,0 +1,37 @@
+@import "variable";
+
+.my-bg-primary {
+	background-color: $my-primary;
+  opacity: 0.9;
+}
+.my-text-primary {
+  color: $my-primary;	
+}
+
+.my-bg-secondary {
+	background-color: $my-secondary;
+}
+.my-text-secondary {
+  color: $my-secondary;	
+}
+
+.my-bg-light {
+	background-color: $my-light;
+}
+.my-text-light {
+  color: $my-light;	
+}
+
+.my-bg-blue-light {
+	background-color: $my-blue-light;
+}
+.my-text-blue-light {
+  color: $my-blue-light;	
+}
+
+.my-bg-dark {
+	background-color: $my-dark;
+}
+.my-text-dark {
+  color: $my-dark;	
+}

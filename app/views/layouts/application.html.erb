@@ -14,26 +14,25 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous" async></script>
   </head>
 
-  <body>
+  <body class="bg-light">
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <nav class="navbar navbar-expand-lg navbar-light my-bg-light">
+        <div class="container d-flex align-items-center">
+          <a href="<%= items_path %>"><h3 class="my-text-primary m-3">Kitties Shop</h3></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <ul class="navbar-nav font-600 d-flex justify-content-end">
               <li class="nav-item">
-                <%= link_to "Accueil", items_path, class:"nav-link active" %>
+                <%= link_to "Accueil", items_path, class:"nav-link m-2" %>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item dropdown m-2">
                 <% if user_signed_in? %>
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Mon compte
                   </a>                        
                   <ul class="dropdown-menu" aria-labelledby="themes">
-                    <li><%= link_to "Mon profil", "#", class:"dropdown-item" %></li>
                     <li><%= link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"dropdown-item" %></li>              
                 </ul>
                 <% else %>
@@ -46,12 +45,20 @@
                   </ul>
                 <% end %>
               </li>
+              <li class="nav-item m-2">
+                <% if user_signed_in? %>
+                  <%= link_to image_tag("shopping_cart.png", size: "40", alt: "Icon shopping cart"), cart_path(current_user.id), class:'navbar-brand my-text-primary' %>
+                <% end %>
+              </li>
             </ul>
           </div>
         </div>
       </nav>
     </header>
 
-    <%= yield %>
+    <div class="container">
+      <br><br>
+      <%= yield %>
+    </div>
   </body>
 </html>

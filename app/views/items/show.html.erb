@@ -6,8 +6,10 @@
     
           <div class=" col-md-6">
             <div class="card text-center" >
-              <img style="height: 400px; width: 100%; display: block;" src="https://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="Card image"/>
-
+            <p>
+              <%= image_tag(@item.picture) if @item.picture.attached? %>
+              
+            </p>
               <div class="card-body">
                 <h4 class="card-title"><%= @item.title %></h4>
                 <p class="card-text"><%= @item.description %></p>

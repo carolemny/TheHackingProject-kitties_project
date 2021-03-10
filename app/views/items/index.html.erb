@@ -1,48 +1,35 @@
-     <br><br>
-     
-     <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Nos chatons</h1>
-          <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">Main call to action</a>
-            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
-          </p>
-        </div>
-      </section>
-    
-    
-    <div class="container">
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1>Nos chatons</h1>
+    <br>
+    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
+    <br>
+    <p>
+      <a href="#" class="my-btn my-btn-lg my-bg-blue-light">Main call to action</a>
+      <a href="#" class="my-btn my-btn-lg">Secondary action</a>
+    </p>
+  </div>
+</section>
+
+<br><br>
+<%= link_to 'New Item', new_item_path, class:"my-btn my-bg-blue-light" %>
+<br><br><br>
     
 <div class="row">
-    <% @items.each do |item| %>
-          <div class=" col-md-4">
-            <div class="card" >
-              <img style="height: 200px; width: 100%; display: block;" src="https://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="Card image"/>
-
-              <div class="card-body">
-                <h4 class="card-title"><%= item.title %></h4>
-                <h6 class="card-subtitle mb-2 text-muted"><%= item.description %> </h6>
-                <p class="card-text"><%= item.price %></p>
-                <div class="btn-card">
-                <p class="card-text"><%= link_to 'Show', item , class:'btn btn-primary'%></p>
-                <p><%= button_to "ajouter au panier", join_item_carts_path(item_id: item), class:'btn btn-success' %></p>
-                </div>
-              </div>
-            </div>
+  <% @items.each do |item| %>
+    <div class="col-md-4">
+      <div class="card my-3">
+         <%= image_tag(item.picture) if item.picture.attached? %>
+        <div class="card-body">
+          <h4 class="card-title"><%= item.title %></h4>
+          <p class="card-text"><%= item.description %> </p>
+          <p class="text-muted mb-4"><%= item.price %></p>
+          <div class="btn-card my-3">
+            <%= link_to 'Voir plus', item_path(item.id), class:'my-btn my-bg-blue-light'%>
+            <%= link_to "Ajouter au panier", join_item_carts_path(item_id: item), method: :post, class:'my-btn' %>
           </div>
-       
-    <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>
-
-   <%= link_to 'New Item', new_item_path %>
-
- 
-
-  
-
-    
-    
-      
-
- 

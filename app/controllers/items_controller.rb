@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
 
   
   def create
-    @item = Item.new(item_params)
-
+    @item = Item.create!(item_params)
+   
     respond_to do |format|
       if @item.save
         format.html { redirect_to @item, notice: "Item was successfully created." }
@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
     
       end
+
     end
   end
 
@@ -56,6 +57,6 @@ class ItemsController < ApplicationController
 
    
     def item_params
-      params.require(:item).permit(:title, :description, :price)
+      params.require(:item).permit(:title, :description, :price, :picture)
     end
 end

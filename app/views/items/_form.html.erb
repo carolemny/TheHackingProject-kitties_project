@@ -1,4 +1,4 @@
-<%= form_with(model: item, local: true) do |form| %>
+<%= form_with(model: item, local: true, html: { class: "form-signin" }) do |form| %>
   <% if item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -11,22 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="field form-group">
+    <%= form.label :title, "Titre" %>
+    <%= form.text_field :title, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+  <div class="field form-group">
+    <%= form.label :description, "Description" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="field form-group">
+    <%= form.label :price, "Prix" %>
+    <%= form.text_field :price, class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="field form-group">
+    <%= form.label :picture, "Choirsir une image" %>
+    <%= form.file_field :picture, class: "form-control" %>
   </div>
+  <br>
+
+  <div class="actions text-center">
+    <%= form.submit "Créer", class: "my-btn my-btn col-md-12" %>
+  </div>
+  
 <% end %>
+<br>
