@@ -7,14 +7,20 @@
 <ul>
 
   <% @cart.join_item_carts.sort_by(&:id).each do |join_item_cart| %>
-    <li><%= "#{join_item_cart.item.title} (x #{join_item_cart.quantity})" %> </li>
+    <li><%= "#{join_item_cart.item.title} (x #{join_item_cart.quantity}) - #{join_item_cart.total_item} €" %> </li>
 		<%= button_to "+", join_item_carts_path(item_id: join_item_cart.item), class:'btn btn-success' %>
 		<%= button_to "-", join_item_cart_path(join_item_cart.id), method: :put, class:'btn btn-warning' %>
 		<%= link_to 'supprimer', join_item_cart_path(id: join_item_cart.id), method: :delete, class:'btn btn-danger' %>
   <% end %>
 </ul>
-
 <p><%= link_to "Retour aux produits", root_path %></p>
+
+
+<%= button_to 'Valider mon panier', carts_path, class:'btn btn-info' %>
+
+<p>TOTAL PANIER : <%= @cart.total_cart %></p>
+
+
 
 
 <div class="container">

@@ -12,4 +12,14 @@ class Cart < ApplicationRecord
     end
     join_item_cart
   end
+
+  def total_cart
+    total_cart = 0
+
+    join_item_carts.sort_by(&:id).each do |join_item_cart|
+      total_cart = total_cart + join_item_cart.total_item
+    end
+
+    return total_cart
+  end
 end

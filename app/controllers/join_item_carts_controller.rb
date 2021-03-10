@@ -1,7 +1,6 @@
 class JoinItemCartsController < ApplicationController
   include CurrentCart
   before_action :set_cart
-  #before_action :set_join_item_cart, only: [:show, :edit, :update, :destroy]
 
   def destroy
     join_item_cart = JoinItemCart.find(params[:id])

@@ -69,3 +69,6 @@ gem 'devise'
 #mailer
 gem 'mailjet'
 gem 'letter_opener'
+
+#stripe
+gem 'stripe'
