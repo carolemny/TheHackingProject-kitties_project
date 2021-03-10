@@ -19,6 +19,7 @@
       <nav class="navbar navbar-expand-lg navbar-light my-bg-light">
         <div class="container d-flex align-items-center">
           <a href="<%= items_path %>"><h3 class="my-text-primary m-3">Kitties Shop</h3></a>
+          <%= link_to image_tag("shopping_cart.png", size: "40", alt: "Icon shopping cart"), cart_path(@cart.id), class:'navbar-brand my-text-primary' %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -43,11 +44,6 @@
                     <li><%= link_to "S'inscrire", new_user_registration_path, class:"dropdown-item" %></li>
                     <li><%= link_to "Se connecter", new_user_session_path, class:"dropdown-item" %></li>
                   </ul>
-                <% end %>
-              </li>
-              <li class="nav-item m-2">
-                <% if user_signed_in? %>
-                  <%= link_to image_tag("shopping_cart.png", size: "40", alt: "Icon shopping cart"), cart_path(current_user.id), class:'navbar-brand my-text-primary' %>
                 <% end %>
               </li>
             </ul>
