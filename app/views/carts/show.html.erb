@@ -1,4 +1,4 @@
-<p id="notice"><%= notice%></p>
+<p id="notice"><%= notice %></p>
 
 <h2>Panier</h2>
   <% if flash[:notice] %>
@@ -6,66 +6,73 @@
   <% end %>
 <ul>
 
-  <% @cart.join_item_carts.sort_by(&:id).each do |join_item_cart| %>
-    <li><%= "#{join_item_cart.item.title} (x #{join_item_cart.quantity}) - #{join_item_cart.total_item} €" %> </li>
-		<%= button_to "+", join_item_carts_path(item_id: join_item_cart.item), class:'btn btn-success' %>
-		<%= button_to "-", join_item_cart_path(join_item_cart.id), method: :put, class:'btn btn-warning' %>
-		<%= link_to 'supprimer', join_item_cart_path(id: join_item_cart.id), method: :delete, class:'btn btn-danger' %>
-  <% end %>
-</ul>
-<p><%= link_to "Retour aux produits", root_path %></p>
-
-
-<%= button_to 'Valider mon panier', carts_path, class:'btn btn-info' %>
-
-<p>TOTAL PANIER : <%= @cart.total_cart %></p>
-
-
-
-
 <div class="container">
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
 						<tr>
-							<th style="width:50%">Product</th>
-							<th style="width:10%">Price</th>
-							<th style="width:8%">Quantity</th>
-							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:80%"></th>
+							<th style="width:10%">Prix</th>
+							<th style="width:8%">Quantité</th>
+							<th style="width:22%" class="text-center">Total</th>
 							<th style="width:10%"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
+	 <% @cart.join_item_carts.sort_by(&:id).each do |join_item_cart| %>
 							<td data-th="Product">
 								<div class="row">
 									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
 									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
+										<h4 class="nomargin"><%= "#{join_item_cart.item.title}" %></h4>
+										<p><%= join_item_cart.item.description %></p>
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">$1.99</td>
+							<td data-th="Price"><%= join_item_cart.item.price %> €</td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
+							<%= "#{join_item_cart.quantity}" %>
 							</td>
-							<td data-th="Subtotal" class="text-center">1.99</td>
+							<td data-th="Subtotal" class="text-center"><%= join_item_cart.total_item %> €</td>
 							<td class="actions" data-th="">
-								<button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							<div class="d-flex  align-items-center">
+								<%= button_to "+", join_item_carts_path(item_id: join_item_cart.item), class: "btn btn-success " %>
+								<%= button_to "-", join_item_cart_path(join_item_cart.id), method: :put, class: "btn btn-warning m-2" %>	
+							</div>
+								<%= link_to "supprimer", join_item_cart_path(id: join_item_cart.id), method: :delete, class: "btn btn-danger" %>							
 							</td>
 						</tr>
 					</tbody>
+					 <% end %>
 					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
-						</tr>
+						
 						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td><%= link_to "Retour aux produits", root_path, class: "btn btn-warning" %></td>
 							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td class="hidden-xs text-center"><strong><%= @cart.total_cart %> €</strong></td>
+							<td>
+							<% if user_signed_in? %>
+							<%= form_tag carts_path do %>
+								<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+   								data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+   								data-description="Payez votre commande"
+   								data-email=<%= current_user.email %>
+   								data-currency= 'eur',
+   								data-amount=<%=  @cart.total_cart * 100 %>
+   								data-locale="auto">
+ 								</script>
+							<% end %>
+							<% else %>
+									<%= link_to "Se connecter", new_user_session_path, class:"btn btn-success btn-block" %>
+							<% end %>
+							</td>
 						</tr>
 					</tfoot>
 				</table>
+
+	<% if flash[:error].present? %>
+    <div id="error_explanation">
+      <p><%= flash[:error] %></p>
+    </div>
+  <% end %>
 </div>

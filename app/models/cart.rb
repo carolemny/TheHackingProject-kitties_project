@@ -15,11 +15,7 @@ class Cart < ApplicationRecord
 
   def total_cart
     total_cart = 0
-
-    join_item_carts.sort_by(&:id).each do |join_item_cart|
-      total_cart = total_cart + join_item_cart.total_item
-    end
-
+    join_item_carts.each { |join_item_cart| total_cart += join_item_cart.total_item }
     return total_cart
   end
 end

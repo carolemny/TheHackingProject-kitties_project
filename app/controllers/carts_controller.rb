@@ -3,12 +3,8 @@ class CartsController < ApplicationController
   before_action :set_cart
   before_action :authenticate_user!, only: [:create]
 
-  def new
-    @user = current_user
-  end
-
   def show
-    @cart = Cart.find(params[:id])
+    @amount = 0
   end
 
   def create
@@ -26,10 +22,15 @@ class CartsController < ApplicationController
         description: "Achat d'un produit",
         currency: "eur",
       })
+
+      #Order.create (faire une methode after creat qui creer des joinitemorder qui sont faits en fct des items du cart)
+
+      @cart.destroy
+      session.delete(:cart_id)
+      
     rescue Stripe::CardError => e
       flash[:error] = e.message
       redirect_to new_cart_path
     end
   end
-
 end

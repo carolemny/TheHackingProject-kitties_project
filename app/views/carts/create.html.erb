@@ -1,3 +1,7 @@
 <h1>Votre paiement est confirmé.</h1>
-<h2>Merci <%= @user.first_name %> <%= @user.last_name %> pour votre achat de <strong><%= @amount %> €</strong> !</h2>
-<p>Un email vous a été envoyé à <%= @user.email %> avec le récapitulatif de votre commande.</p>
+<h2>Merci <%= current_user.first_name %> <%= current_user.last_name %> pour votre achat de <strong><%= @amount %> €</strong> !</h2>
+<p>Un email vous a été envoyé à <%= current_user.email %> avec le récapitulatif de votre commande.</p>
+
+<p>Si vous n'êtes pas automatiquement redirigé(e) vers l'accueil, merci de cliquer sur le bouton ci-dessous</p>
+<meta HTTP-EQUIV="REFRESH" content="5; <%=root_path%>">
+<%= link_to "Rejoindre l'accueil", root_path, class:"btn btn-outline-primary btn-lg" %> 
