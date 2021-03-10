@@ -7,8 +7,11 @@
   background-color: $my-light;
   font-size: 1em;
   letter-spacing: 1px;
+  color: $my-dark;
+  text-decoration: none;
   &:hover {
     background-color: $my-secondary;
+    color: $my-dark;
   }
   &-sm {
     font-size: .8em;
