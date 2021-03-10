@@ -16,10 +16,14 @@
     
 <div class="row">
     <% @items.each do |item| %>
+      
           <div class=" col-md-4">
             <div class="card" >
-              <img style="height: 200px; width: 100%; display: block;" src="https://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="Card image"/>
-
+              
+            <%if item.picture.attached?%>
+            <%= image_tag item.picture, style:"width:100%; display:block" %>
+            <%end%>
+            
               <div class="card-body">
                 <h4 class="card-title"><%= item.title %></h4>
                 <h6 class="card-subtitle mb-2 text-muted"><%= item.description %> </h6>

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: 'items#index'
-  resources :items, except: [:destroy]
+  resources :items, except: [:destroy] do
+    resources :pictures, only: [:create]
+  end
   resources :join_item_carts
   resources :carts, only: [:show]
   devise_for :users
