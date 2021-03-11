@@ -41,6 +41,9 @@
   object-fit: contain;
   height: 250px; 
   background-color: $my-light;
+}
+
+.my-card-hover{
   transition: all .2s ease-in-out;
   &:hover {
     transform: scale(1.1);

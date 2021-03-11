@@ -27,6 +27,8 @@ class CartsController < ApplicationController
       order.add_item_to_order(@cart)
       redirect_to orders_path
 
+      UserMailer.order_email(current_user.id).deliver_now
+
       @cart.destroy
       session.delete(:cart_id)
       
