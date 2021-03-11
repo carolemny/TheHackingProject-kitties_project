@@ -1,6 +1,6 @@
 @import "variable";
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4 {
   font-family: 'Itim', cursive;
   letter-spacing: 1px;
   color: $my-primary;
@@ -17,6 +17,14 @@ nav a, a, .my-link {
   color: $my-primary;
   &:hover {
     color: $my-secondary;
+  }
+}
+
+.my-link-secondary {
+  text-decoration: none;
+  color: $my-secondary;
+  &:hover {
+    color: $my-primary;
   }
 }
 

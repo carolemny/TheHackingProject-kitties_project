@@ -12,7 +12,7 @@
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Actuellement en attente de confirmation pour : <%= resource.unconfirmed_email %></div>
+      <p>Actuellement en attente de confirmation pour : <%= resource.unconfirmed_email %></p>
     <% end %>
 
     <div class="field form-group">

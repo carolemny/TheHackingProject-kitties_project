@@ -37,16 +37,20 @@
 }
 
 
-.my-card {
-  object-fit: contain;
-  height: 250px; 
-  background-color: $my-light;
+.my-alert-warning {
+  background-color: #FEDC5D;
+  opacity: 0.6;
 }
-
-.my-card-hover{
-  transition: all .2s ease-in-out;
-  &:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
+.my-alert-danger {
+  background-color: #D96459;
+  opacity: 0.6;
+}
+.my-alert-success {
+  background-color: #A3CFC5;
+  opacity: 0.7;
+}
+.my-alert-info {
+  background-color: #B4D4ED;
+  opacity: 0.6;
+  color: $my-dark;
 }
