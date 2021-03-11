@@ -5,14 +5,14 @@
     <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don't simply skip over it entirely.</p>
     <br>
     <p>
-      <a href="#" class="my-btn my-btn-lg my-bg-blue-light">Main call to action</a>
+      <a href="#" class="my-btn-blue-light my-btn-blue-light-lg">Main call to action</a>
       <a href="#" class="my-btn my-btn-lg">Secondary action</a>
     </p>
   </div>
 </section>
 
 <br><br>
-<%= link_to 'New Item', new_item_path, class:"my-btn my-bg-blue-light" %>
+<%= link_to 'New Item', new_item_path, class:"my-btn-blue-light" %>
 <br><br><br>
     
 <div class="row">
@@ -25,7 +25,7 @@
             <p class="card-text"><%= item.description %> </p>
             <p class="text-muted mb-4"><%= item.price %></p>
             <div class="btn-card my-3">
-              <%= link_to 'Voir plus', item_path(item.id), class:'my-btn my-bg-blue-light'%>
+              <%= link_to 'Voir plus', item_path(item.id), class:'my-btn-blue-light'%>
               <%= link_to "Ajouter au panier", join_item_carts_path(item_id: item), method: :post, class:'my-btn' %>
             </div>
           </div>

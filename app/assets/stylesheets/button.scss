@@ -2,15 +2,16 @@
 
 .my-btn {
   padding: .7em;
-  border: none;
+  border: 1.5px solid $my-primary;
   border-radius: 5px;
   background-color: $my-light;
   font-size: 1em;
   letter-spacing: 1px;
-  color: $my-dark;
+  color: $my-primary;
   text-decoration: none;
   &:hover {
     background-color: $my-secondary;
+    border: none;
     color: $my-dark;
   }
   &-sm {
@@ -21,3 +22,48 @@
   padding: 1em;
   }
 }
+
+.my-btn-secondary {
+  padding: .7em;
+  border: none;
+  border-radius: 5px;
+  background-color: $my-secondary;
+  font-size: 1em;
+  letter-spacing: 1px;
+  color: $my-dark;
+  text-decoration: none;
+  &:hover {
+    background-color: $my-light;
+    border: 1px solid $my-primary;
+    color: $my-dark;
+  }
+  &-sm {
+    font-size: .8em;
+  }
+  &-lg {
+    font-size: 1.15em;
+  padding: 1em;
+  }}
+
+
+  .my-btn-blue-light {
+    padding: .7em;
+    border: none;
+    border-radius: 5px;
+    background-color: $my-blue-light;
+    font-size: 1em;
+    letter-spacing: 1px;
+    color: $my-dark;
+    text-decoration: none;
+    &:hover {
+      background-color: $my-light;
+      border: 1px solid $my-blue-light;
+      color: $my-dark;
+    }
+    &-sm {
+      font-size: .8em;
+    }
+    &-lg {
+      font-size: 1.15em;
+    padding: 1em;
+    }}
