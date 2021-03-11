@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mes commandes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td> Commande n°<%= order.id %></td>
+        <td> <%= link_to 'Voir la commande', order_path(order.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
