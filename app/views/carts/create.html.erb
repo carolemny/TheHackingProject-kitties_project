@@ -3,6 +3,5 @@
 <br><br>
 <p>Un email vous a été envoyé à <%= current_user.email %> avec le récapitulatif de votre commande.</p>
 <p>Si vous n'êtes pas automatiquement redirigé(e) vers l'accueil, merci de cliquer sur le bouton ci-dessous</p>
-<br>
-<meta HTTP-EQUIV="REFRESH" content="5; <%=root_path%>">
-<%= link_to "Rejoindre l'accueil", root_path, class:"my-btn" %> 
+<meta HTTP-EQUIV="REFRESH" content="5; <%= orders_path %>">
+<%= link_to "Rejoindre l'accueil", orders_path, class:"btn btn-outline-primary btn-lg" %> 

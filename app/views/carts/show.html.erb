@@ -1,10 +1,4 @@
-<p id="notice"><%= notice %></p>
-
 <h2>Panier</h2>
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
 
 <table class="table align-middle table-hover">
   <thead>
@@ -20,14 +14,14 @@
   <% @cart.join_item_carts.sort_by(&:id).each do |join_item_cart| %>
     <tbody>
 		  <tr>
-				<td class="d-flex" data-th="Product">
-						<div class="col-sm-2 hidden-xs">
-              <img src="http://placehold.it/100x100" alt="..." class="img-responsive"/>
-            </div>
-						<div>
-							<h4 class="nomargin"><%= join_item_cart.item.title %></h4>
-							<p><%= join_item_cart.item.description %></p>
-						</div>
+				<td class="d-flex align-items-center" data-th="Product">
+					<div class="col-sm-2 hidden-xs">
+            <%= image_tag(join_item_cart.item.picture, class:"my-img-card-sm pe-5") %>
+          </div>
+					<div class="ps-5">
+						<h4 class="nomargin"><%= join_item_cart.item.title %></h4>
+						<p><%= join_item_cart.item.description %></p>
+					</div>
         </td>
 				<td data-th="Price" class="text-center"><%= join_item_cart.item.price %> €</td>
 				<td data-th="Quantity" class="text-center"><%= join_item_cart.quantity %></td>
@@ -45,27 +39,26 @@
 </table>
 
 <div class="d-flex justify-content-between align-items-center">
-	<%= link_to "Retour aux produits", root_path, class: "my-btn" %>
-  <div class="d-flex align-items-center">
-    <h6 class="m-3"><strong><%= @cart.total_cart %> €</strong></h6>
-     <% if user_signed_in? %>
-      <%= form_tag carts_path do %>
-        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Payez votre commande"
-          data-email=<%= current_user.email %>
-          data-currency= 'eur',
-          data-amount=<%= @cart.total_cart * 100 %>
-          data-locale="auto">
-        </script>
-      <% end %>
-    <% else %>
+  <%= link_to "Voir mes commandes", orders_path, class: "my-link" %>
+	<%= link_to "Retour aux produits", root_path, class: "my-link" %>
+    <div class="d-flex align-items-center">
+      <h6 class="m-3"><strong><%= @cart.total_cart %> €</strong></h6>
+      <% if user_signed_in? %>
+        <%= form_tag carts_path do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Payez votre commande"
+            data-email=<%= current_user.email %>
+            data-currency= 'eur',
+            data-amount=<%= @cart.total_cart * 100 %>
+            data-locale="auto">
+          </script>
+        <% end %>
+      <% else %>
       <%= link_to "Payer", new_user_session_path, class:"my-btn-blue-light my-btn-blue-light-lg" %>
     <% end %>
   </div>
-
 </div>	
-
 
 <% if flash[:error].present? %>
   <div id="error_explanation">
