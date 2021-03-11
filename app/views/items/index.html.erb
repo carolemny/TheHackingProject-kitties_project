@@ -15,7 +15,8 @@
   <% @items.each do |item| %>
     <div class="col-md-4 py-3">
       <div class="card h-100 my-card-hover">
-        <%= image_tag(item.picture, class:"my-img-card") if item.picture.attached? %>
+      <%= image_tag item.picture, height: "200px;", class:"my-img-card" %>
+       
         <div class="card-body">
           <h4 class="card-title"><%= item.title %></h4>
           <p class="card-text"><%= item.description %> </p>
