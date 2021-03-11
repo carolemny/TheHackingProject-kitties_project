@@ -20,6 +20,14 @@ nav a, a, .my-link {
   }
 }
 
+.my-link-secondary {
+  text-decoration: none;
+  color: $my-secondary;
+  &:hover {
+    color: $my-primary;
+  }
+}
+
 p {
   font-size: .9em;
 }
