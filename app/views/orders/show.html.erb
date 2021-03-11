@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<div>Détails de la commande</div>
+<div>
+  <% @order.join_item_orders.each do |join_item_order|%>
+  <div><%= join_item_order.item.title %></div>
+  <div> <p>Prix unitaire : <%= join_item_order.price_order %> € </p></div>
+  <div> <p>Quantité : <%= join_item_order.quantity %> </p></div>
+  <div> <p>Sous-total : <%= join_item_order.quantity * join_item_order.price_order %> €</p></div>
+  <% end %>
+</div>
+
+<div><p>Total commande : <%= @total %>€</p></div>
+
+<%= link_to 'Retour aux commandes', orders_path %>

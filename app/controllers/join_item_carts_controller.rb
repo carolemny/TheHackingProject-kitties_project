@@ -14,7 +14,7 @@ class JoinItemCartsController < ApplicationController
       quantity = (join_item_cart.quantity - 1)
       join_item_cart.update(quantity: quantity)
     else
-      flash[:notice] = "Vous êtes à la quantité minimale, vous devez supprimer"
+      flash[:notice] = "Vous êtes à la quantité minimale, vous devez supprimer."
     end
     redirect_to cart_path(@cart.id)
   end
