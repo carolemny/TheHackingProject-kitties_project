@@ -24,6 +24,7 @@ class CartsController < ApplicationController
       })
 
       #Order.create (faire une methode after creat qui creer des joinitemorder qui sont faits en fct des items du cart)
+      UserMailer.order_email(current_user.id).deliver_now
 
       @cart.destroy
       session.delete(:cart_id)
