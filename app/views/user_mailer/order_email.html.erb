@@ -20,14 +20,16 @@
 
   <body>
     <div class="my-bg-light">
-      <h1> Hello <%= @user.first_name %> et bienvenue chez <span class="my-text-primary font-400"> Kitties Shop </span> </h1>
-      <p>
-        Tu t'es inscrit sur Kitties Shop en utilisant le mail suivant : <%= @user.email %>.
-      </p>
-      <br>
+      <h1> Hello <%= @user.first_name %> , merci pour ta commande chez <span class="my-text-primary font-400"> Kitties Shop </span> </h1>
+      
+      <h2> Voici ta commande :</h2>
+    
+      <h3> Total : </h3> <%= @amount %>
+
       <p>
         Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
       </p>
+
       <p> Merci, 
       <br>
       L'équipe Kitties Shop </p>

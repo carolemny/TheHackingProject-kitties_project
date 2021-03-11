@@ -8,6 +8,9 @@ class ItemsController < ApplicationController
 
  
   def show
+    puts "****************************************"
+    puts @item.picture
+    puts "****************************************"
   end
 
  
