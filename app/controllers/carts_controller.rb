@@ -23,7 +23,11 @@ class CartsController < ApplicationController
         currency: "eur",
       })
 
-      #Order.create (faire une methode after creat qui creer des joinitemorder qui sont faits en fct des items du cart)
+      order = Order.create(user_id: current_user.id)
+      order.add_item_to_order(@cart)
+      redirect_to orders_path
+
+      UserMailer.order_email(current_user.id).deliver_now
 
       @cart.destroy
       session.delete(:cart_id)
