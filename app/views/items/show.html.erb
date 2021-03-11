@@ -1,27 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<div class="container">
-    
 <div class="row justify-content-center">
-    
-          <div class=" col-md-6">
-            <div class="card text-center" >
-            <p>
-          
-              <%= image_tag(@item.picture,class:"container") if @item.picture.attached? %>
-              
-            </p>
-              <div class="card-body">
-                <h4 class="card-title"><%= @item.title %></h4>
-                <p class="card-text"><%= @item.description %></p>
-                <p class="card-text"><%= @item.price %></p>
-                <%= button_to "ajouter au panier", join_item_carts_path(item_id: @item), class:'btn btn-success' %>
-              </div>
-            </div>
-            <br>
-                <%= link_to 'Back', items_path %>
-          </div>
-       
-    
-</div>
+  <div class=" col-md-6">
+    <div class="card text-center pt-4" >
+      <%= image_tag(@item.picture,class:"container") if @item.picture.attached? %>
+      <div class="card-body">
+        <h4 class="card-title"><%= @item.title %></h4>
+        <p class="card-text"><%= @item.description %></p>
+        <p class="card-text"><%= @item.price %> €</p>
+        <%= button_to "Ajouter au panier", join_item_carts_path(item_id: @item), class:'my-btn' %>
+      </div>
+    </div>
+    <br>
+    <%= link_to 'Retour', items_path, class: "my-link" %>
+  </div>    
 </div>
