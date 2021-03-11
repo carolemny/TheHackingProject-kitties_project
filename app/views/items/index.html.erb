@@ -16,20 +16,20 @@
 <br><br><br>
     
 <div class="row">
-  <% @items.each do |item| %>
-    <div class="col-md-4">
-      <div class="card my-3">
-         <%= image_tag(item.picture) if item.picture.attached? %>
-        <div class="card-body">
-          <h4 class="card-title"><%= item.title %></h4>
-          <p class="card-text"><%= item.description %> </p>
-          <p class="text-muted mb-4"><%= item.price %></p>
-          <div class="btn-card my-3">
-            <%= link_to 'Voir plus', item_path(item.id), class:'my-btn my-bg-blue-light'%>
-            <%= link_to "Ajouter au panier", join_item_carts_path(item_id: item), method: :post, class:'my-btn' %>
+    <% @items.each do |item| %>
+      <div class="col-md-4 py-3">
+        <div class="card h-100">
+          <%= image_tag(item.picture, class:"my-card") if item.picture.attached? %>
+          <div class="card-body">
+            <h4 class="card-title"><%= item.title %></h4>
+            <p class="card-text"><%= item.description %> </p>
+            <p class="text-muted mb-4"><%= item.price %></p>
+            <div class="btn-card my-3">
+              <%= link_to 'Voir plus', item_path(item.id), class:'my-btn my-bg-blue-light'%>
+              <%= link_to "Ajouter au panier", join_item_carts_path(item_id: item), method: :post, class:'my-btn' %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
 </div>

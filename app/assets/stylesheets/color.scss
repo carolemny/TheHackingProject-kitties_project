@@ -35,3 +35,15 @@
 .my-text-dark {
   color: $my-dark;	
 }
+
+
+.my-card {
+  object-fit: contain;
+  height: 250px; 
+  background-color: $my-light;
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+}
