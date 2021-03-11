@@ -1,21 +1,17 @@
-<p id="notice"><%= notice %></p>
+<div class="container mx-5 px-0">
 
-<h1>Mes commandes</h1>
+  <h1>Mes commandes</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @orders.each do |order| %>
-      <tr>
-        <td> Commande n°<%= order.id %></td>
-        <td> <%= link_to 'Voir la commande', order_path(order.id) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+  <div class="mx-auto">
+      <% @orders.each do |order| %>
+        <hr class="my-4">
+        <div class="d-flex justify-content-between">
+          <div> 
+            <p class="my-lead my-0"> Commande n°<%= order.id %></p>
+            <p class="my-0 py-0">Créée le <%= order.created_at.strftime(" %m. %m. %C") %></p>
+          </div>
+          <div class="d-flex flex-row-reverse"><%= link_to 'Voir la commande', order_path(order.id), class:"my-link-secondary" %></div>
+        </div>
+      <% end %>
+  </div>
+</div>

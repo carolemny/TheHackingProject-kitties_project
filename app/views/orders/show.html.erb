@@ -1,15 +1,28 @@
-<p id="notice"><%= notice %></p>
+<div class="container px-5">
 
-<div>Détails de la commande</div>
-<div>
-  <% @order.join_item_orders.each do |join_item_order|%>
-  <div><%= join_item_order.item.title %></div>
-  <div> <p>Prix unitaire : <%= join_item_order.price_order %> € </p></div>
-  <div> <p>Quantité : <%= join_item_order.quantity %> </p></div>
-  <div> <p>Sous-total : <%= join_item_order.quantity * join_item_order.price_order %> €</p></div>
-  <% end %>
+  <h1>Détails de la commande</h1>
+  
+  <div class="container my-5">
+    <div class="d-block mx-0 px-0">
+    <div class="row my-lead">
+      <div class="col text-left">Produit</div>
+      <div class="col text-left">Prix unitaire (€)</div>
+      <div class="col text-left">Quantité</div>
+      <div class="col text-left">Sous-total (€)</div>
+    </div>
+    <hr class="my-4">
+      <% @order.join_item_orders.each do |join_item_order|%>
+        <div class="row">
+          <div class="col text-left"><%= join_item_order.item.title %></div>
+          <div class="col text-left"><%= join_item_order.price_order %></div>
+          <div class="col text-left"><%= join_item_order.quantity%></div>
+          <div class="col text-left"><%= join_item_order.quantity * join_item_order.price_order %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+  <div class="text-center d-flex justify-content-end my-5"><p class="my-text-light border rounded p-3 my-bg-primary my-lead"> Total commande : <%= @total %>€</p></div>
+
+  <div><%= link_to 'Retour aux commandes', orders_path, class:"my-link" %></div>
 </div>
-
-<div><p>Total commande : <%= @total %>€</p></div>
-
-<%= link_to 'Retour aux commandes', orders_path %>
