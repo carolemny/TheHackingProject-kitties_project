@@ -2,7 +2,6 @@
 <html>
 
   <head>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -17,22 +16,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous" async></script>
   </head>
 
-
   <body>
     <div class="my-bg-light">
-      <h1> Hello <%= @user.first_name %> , merci pour ta commande chez <span class="my-text-primary font-400"> Kitties Shop </span> </h1>
+      <h1> Hello <%= @user.first_name %>, merci pour ta commande chez <span class="my-text-primary font-400"> Kitties Shop </span> ! </h1>
       
       <h2> Voici ta commande :</h2>
-    
-      <h3> Total : </h3> <%= @amount %>
+
+      <h2> Total : </h2> <%= @amount %>
 
       <p>
-        Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+        Pour accéder à ton espace client, connecte-toi via : <a href="<%= @url %>"><%= @url %></a>.
       </p>
 
-      <p> Merci, 
+      <p> A bientôt ! </p> 
       <br>
-      L'équipe Kitties Shop </p>
+      <p> L'équipe Kitties Shop </p>
     </div>
   </body>
 </html>
