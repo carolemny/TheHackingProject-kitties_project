@@ -7,8 +7,12 @@
           <div class=" col-md-6">
             <div class="card text-center" >
             <p>
-              <%= image_tag(@item.picture) if @item.picture.attached? %>
-              
+          
+              <%= image_tag(@item.picture,class:"container") if @item.picture.attached? %>
+              <%# <%= image_tag(asset_path('cat/cat1.jpg'),class:"container") if @item.picture.attached? %> %>
+              <%# <%= image_tag('cat/cat1.jpg',class:"container") if @item.picture.attached? %> %>
+              <%# <%= image_tag(asset_path(@item.picture),class:"container")  %>          %>
+             git 
             </p>
               <div class="card-body">
                 <h4 class="card-title"><%= @item.title %></h4>
