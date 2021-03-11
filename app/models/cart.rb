@@ -18,4 +18,6 @@ class Cart < ApplicationRecord
     join_item_carts.each { |join_item_cart| total_cart += join_item_cart.total_item }
     return total_cart
   end
+
 end
+
