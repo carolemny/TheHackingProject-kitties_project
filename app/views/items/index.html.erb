@@ -18,10 +18,10 @@
       <%= image_tag item.picture, height: "200px;", class:"my-img-card" %>
        
         <div class="card-body">
-          <h4 class="card-title"><%= item.title %></h4>
-          <p class="card-text"><%= item.description %> </p>
-          <p class="text-muted mb-4"><%= item.price %></p>
-          <div class="btn-card my-3 d-flex justify-content-between">
+          <h4 class="card-title mx-4"><%= item.title %></h4>
+          <p class="card-text mx-4"><%= item.description %> </p>
+          <p class="text-muted m-4"><%= item.price %> €</p>
+          <div class="btn-card my-3 mx-4 d-flex justify-content-between">
             <%= link_to 'Voir plus', item_path(item.id), class:'my-btn-blue-light  '%>
             <%= link_to "Ajouter au panier", join_item_carts_path(item_id: item), method: :post, class:'my-btn' %>
           </div>
